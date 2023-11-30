@@ -12,6 +12,9 @@ public class Manager : MonoBehaviour
     InputManager input = new InputManager();
     public static InputManager Input { get { return Instance.input; } }
 
+    ResourceManager resource = new ResourceManager();
+    public static ResourceManager Resource { get { return Instance.resource; } }
+
     void Start()
     {
         Init();
@@ -42,6 +45,5 @@ public class Manager : MonoBehaviour
             // 게임 오브젝트에서 컴포넌트를 가져와서 리턴한다
             instance = managerGameObject.GetComponent<Manager>();
         }
-
     }
 }
