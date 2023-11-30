@@ -10,10 +10,10 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        Manager.Input.KeyAction += MovePlayer;
     }
 
-    void Update()
+    void MovePlayer()
     {
         // 키를 누르고 있으면 true를 리턴한다
         if (Input.GetKey(KeyCode.W))

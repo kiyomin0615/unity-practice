@@ -7,7 +7,11 @@ public class Manager : MonoBehaviour
     // Singleton Pattern
     // static 멤버는 "유일"하고 "공유"된다
     static Manager instance;
-    public static Manager Instance { get { Init(); return instance; }  }
+    public static Manager Instance { get { Init(); return instance; } }
+
+    InputManager input = new InputManager();
+    public static InputManager Input { get { return Instance.input; } }
+
     void Start()
     {
         Init();
@@ -15,7 +19,7 @@ public class Manager : MonoBehaviour
 
     void Update()
     {
-        
+        input.OnUpdate();
     }
 
     static void Init()
@@ -25,7 +29,7 @@ public class Manager : MonoBehaviour
             // 게임 오브젝트를 찾아서 리턴한다
             GameObject managerGameObject = GameObject.Find("@Manager");
 
-            if (managerGameObject == null )
+            if (managerGameObject == null)
             {
                 // 게임 오브젝트 생성한다
                 managerGameObject = new GameObject { name = "@Manager" };
